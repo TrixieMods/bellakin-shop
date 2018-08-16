@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+
+    <link th:fragment="bootstrap-css" type="text/css" rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+
+    <link th:fragment="main-css" type="text/css" rel="stylesheet" href="/css/main.css">
+
+    <th:block th:fragment="bootstrap-js">
+        <script src="/webjars/jquery/jquery.min.js"></script>
+        <script src="/webjars/popper.js/umd/popper.min.js"></script>
+        <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    </th:block>
+
+    <th:block th:fragment="main-js">
+        <script src="/js/main.js"></script>
+    </th:block>
+
+    <th:block th:replace="fragments/head :: bootstrap-js" />
+    <th:block th:replace="fragments/head :: main-js" />
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+
+    <!-- Style -->
+    <link th:replace="fragments/head :: bootstrap-css">
+    <link th:replace="fragments/head :: main-css">
+</head>
+<body>
+
+    <div class="jumbotron">
+        <h3>Clarissa's Awesome Shop!</h3>
+    </div>
+
+    <div class="container">
+        <h4>Hot Items!</h4>
+        <div id="elemOut">
+            <!--<div th:each="item : ${items}">-->
+                <!--<h5 th:text="${item.title}">Title</h5>-->
+                <!--<div th:text="${item.body}">Body</div>-->
+            <!--</div>-->
+            <div th:text="${saved}"></div>
+        </div>
+    </div>
+
+    <th:block th:replace="fragments/head :: bootstrap-js" />
+    <th:block th:replace="fragments/head :: main-js" />
+
+</body>
+</html>

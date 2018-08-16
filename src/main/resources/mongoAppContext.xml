@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+       xsi:schemaLocation="http://www.springframework.org/schema/data/mongo
+    http://www.springframework.org/schema/data/mongo/spring-mongo-2.0.xsd
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!-- Hosts -->
+    <mongo:mongo-client id="localhost" host="localhost"  />
+
+    <!-- Databases -->
+    <mongo:db-factory id="shopDb" mongo-ref="localhost" dbname="shop"/>
+    <mongo:db-factory id="shopDb2" mongo-ref="localhost" dbname="shop2"/>
+
+    <mongo:template id="shopDbTemplate" db-factory-ref="shopDb"/>
+    <mongo:template id="shopDbTemplate2" db-factory-ref="shopDb2"/>
+
+    <bean id="customerDao" class="com.bellakin.shop.models.CustomerMongoDAO">
+        <constructor-arg name="template" ref="shopDbTemplate"/>
+        <constructor-arg name="collection" value="cust1"/>
+    </bean>
+
+    <bean id="customerDao2" class="com.bellakin.shop.models.CustomerMongoDAO">
+        <constructor-arg name="template" ref="shopDbTemplate2"/>
+        <constructor-arg name="collection" value="cust2"/>
+    </bean>
+
+    <!--  Exception Handler -->
+    <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+
+</beans>
