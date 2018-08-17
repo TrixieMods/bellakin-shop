@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -32,13 +33,9 @@ public class HomeController {
 
   @GetMapping("/")
   public ModelAndView index(Map<String, Object> model) {
-    Customer c = customerRepo.getRepo().save(new Customer("Knob", "Cheese"));
-    model.put("saved", c);
-    customerRepo.getRepo().findAll().forEach(customer -> copyDao.getRepo().save(customer));
+    List<Customer> all = customerRepo.getRepo().findAll();
 
-    long count = customerRepo.getRepo().count();
-
-    customerRepo.getRepo().existsById(c.getId());
+    model.put("customers", all);
 
     return new ModelAndView("index", model);
   }
