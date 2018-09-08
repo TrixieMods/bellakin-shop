@@ -1,0 +1,22 @@
+<!doctype html>
+<html xmlns:layout="http://www.thymeleaf.org" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${pageTitle} + ' - Dan\'s Website'">Page Title</title>
+
+    <!-- Style -->
+    <link th:replace="fragments/includes :: bootstrap-css">
+    <link th:replace="fragments/includes :: main-css">
+</head>
+
+<body>
+<div th:replace="fragments/headers/default-header :: header"></div>
+
+<main class="container-fluid" layout:fragment="~{body-content}"></main>
+
+<div th:replace="fragments/headers/default-footer :: footer"></div>
+
+<th:block th:replace="fragments/includes :: bootstrap-js"/>
+<th:block th:replace="fragments/includes :: main-js"/>
+</body>
+</html>

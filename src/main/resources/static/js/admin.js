@@ -1,5 +1,5 @@
-function accountLogin(form) {
-    fetch("/account/login", {
+function addUser(form) {
+    fetch("/admin/addUser", {
         method: "POST",
         body: new FormData(form)
     })
@@ -8,23 +8,27 @@ function accountLogin(form) {
             if(result.status !== 200) {
                 alert(result.status + " : " + text);
             } else {
-                document.location.replace("/");
+                location.reload();
             }
         });
     })
     .catch(error => console.error('Error:', error));;
 }
 
-function accountLogout() {
-    fetch("/account/logout", {
-        method: "POST"
+function deleteUser(id) {
+    fetch("/admin/deleteUser", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({id:id})
     })
     .then(result => {
         result.text().then(text => {
             if(result.status !== 200) {
-                alert(result.status + " : " + text);
+                alert(result.status + " : " + result.statusText + "\n" + text);
             } else {
-                document.location.replace("/");
+                location.reload();
             }
         });
     })

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.thymeleaf.org/"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layouts/default-layout}" th:with="pageTitle='Account'">
+
+<body>
+<div layout:fragment="head-content">
+    <span class="head-logo">Account</span>
+</div>
+
+<main layout:fragment="body-content">
+
+    <div class="row mx-md-4">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Preferences</h4>
+                            <div class="control-buttons">
+                                <button class="btn btn-success" disabled>Save</button>
+                                <button class="btn btn-danger">Delete Account</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </div>
+</main>
+
+</body>
+</html>

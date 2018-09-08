@@ -1,33 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+       xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/data/mongo
     http://www.springframework.org/schema/data/mongo/spring-mongo-2.0.xsd
     http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <!-- Hosts -->
-    <mongo:mongo-client id="localhost" host="localhost"  />
+    <!-- # Databases # -->
+    <mongo:db-factory id="localhost/shop" client-uri="mongodb://localhost/shop"/>
 
-    <!-- Databases -->
-    <mongo:db-factory id="shopDb" mongo-ref="localhost" dbname="shop"/>
-    <mongo:db-factory id="shopDb2" mongo-ref="localhost" dbname="shop2"/>
-
-    <mongo:template id="shopDbTemplate" db-factory-ref="shopDb"/>
-    <mongo:template id="shopDbTemplate2" db-factory-ref="shopDb2"/>
-
-    <bean id="customerDao" class="com.bellakin.shop.models.CustomerMongoDAO">
-        <constructor-arg name="template" ref="shopDbTemplate"/>
-        <constructor-arg name="collection" value="cust1"/>
+    <!-- # DAO Beans # -->
+    <bean id="userDao" class="com.bellakin.core.data.persistence.mongodb.MongoRepo" lazy-init="true">
+        <constructor-arg name="factory" ref="localhost/shop"/>
+        <constructor-arg name="collection" value="users"/>
+        <constructor-arg name="type" value="com.bellakin.shop.data.models.users.AppUser"/>
     </bean>
 
-    <bean id="customerDao2" class="com.bellakin.shop.models.CustomerMongoDAO">
-        <constructor-arg name="template" ref="shopDbTemplate2"/>
-        <constructor-arg name="collection" value="cust2"/>
+    <bean id="userDao2" class="com.bellakin.core.data.persistence.mongodb.MongoRepo" lazy-init="true">
+        <constructor-arg name="factory" ref="localhost/shop"/>
+        <constructor-arg name="collection" value="users2"/>
+        <constructor-arg name="type" value="com.bellakin.shop.data.models.users.AppUser"/>
     </bean>
 
     <!--  Exception Handler -->
-    <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
+    <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" lazy-init="true"/>
 
 </beans>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.thymeleaf.org/"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layouts/default-layout}" th:with="pageTitle='User List'">
+
+<body>
+<div layout:fragment="head-content">
+    <span class="head-logo">Users</span>
+</div>
+
+<main layout:fragment="body-content">
+
+    <div class="row mx-md-4">
+        <div class="col-4 mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">User Controls</h4>
+                    <div class="control-buttons">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form class="col-8 mt-4 mx-auto" action="#" onsubmit="javascript:addUser(this); return false;">
+            <div class="card">
+                <!-- Roles list -->
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="name">Username</label>
+                        <input type="text" class="form-control" id="name" name="name"
+                               placeholder="Enter username">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password"
+                               placeholder="Enter password">
+                    </div>
+                    <div class="form-group">
+                        <label for="role">Roles</label>
+                        <select class="form-control" id="role" name="role">
+                            <option th:each="role : ${roles}" th:text="${role}">1</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Add User</button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="row mt-4 mx-md-4">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-2 mt-2" th:each="user : ${users}">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title" th:text="${user.name}">Username</h4>
+                    <p class="card-text" th:text="${user.password}">Last Name</p>
+                    <p class="badge badge-pill badge-info" th:each="role : ${user.roles}" th:text="${role.name}">Role</p>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-danger mr-auto" th:attr="onclick='deleteUser(\''+${user.id}+'\')'">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+</body>
+</html>

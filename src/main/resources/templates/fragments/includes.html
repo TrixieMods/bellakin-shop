@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+
+<link th:fragment="bootstrap-css" type="text/css" rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+
+<link href="https://fonts.googleapis.com/css?family=Marck+Script" rel="stylesheet">
+
+<th:block th:fragment="main-css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Orbitron|Marck+Script" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="/css/main.css">
+</th:block>
+
+<th:block th:fragment="bootstrap-js">
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/popper.js/umd/popper.min.js"></script>
+    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
+</th:block>
+
+<th:block th:fragment="main-js">
+    <script src="/js/main.js"></script>
+</th:block>
+
+<th:block th:fragment="admin-js">
+    <script src="/js/admin.js"></script>
+</th:block>
+
+<th:block th:replace="fragments/includes :: bootstrap-js"/>
+<th:block th:replace="fragments/includes :: main-js"/>
+<th:block th:replace="fragments/includes :: admin-js"/>
+
+</html>

@@ -1,0 +1,18 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<body>
+<th:block th:fragment="header">
+    <header>
+
+        <div class="header jumbotron shadow mb-0">
+            <h1 class="text-light text-center">
+                <span layout:fragment="head-content" class="row justify-content-center">Head Content</span>
+            </h1>
+        </div>
+
+
+    </header>
+    <th:block th:replace="fragments/nav/default-nav :: nav-top"/>
+</th:block>
+</body>
+</html>

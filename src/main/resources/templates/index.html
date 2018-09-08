@@ -1,31 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta charset="UTF-8">
-        <title>Homepage</title>
+<html xmlns:layout="http://www.thymeleaf.org/"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layouts/default-layout}" th:with="pageTitle='Home'">
 
-        <!-- Style -->
-        <link th:replace="fragments/head :: bootstrap-css">
-        <link th:replace="fragments/head :: main-css">
-    </head>
-    <body>
+<body>
 
-        <div class="jumbotron">
-            <h3>Awesome Shop!</h3>
-        </div>
+<div layout:fragment="head-content">
+    <span class="head-logo">Dan's Website</span>
+</div>
 
-        <div class="container">
-            <h4>Users:</h4>
-            <div id="elemOut">
-                <div th:each="item : ${customers}">
-                    <h5 th:text="${item.firstName}">First Name</h5>
-                    <div th:text="${item.lastName}">Last Name</div>
+<main layout:fragment="body-content">
+    <div class="row mt-2 mx-md-4">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Dan's Website just launched!</h4>
+                            <p class="card-text">Come get some!</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+    </div>
+    <div class="row mt-2 mx-md-4 align-items-center">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-2"
+                      th:each="i : ${#numbers.sequence( 1, 12)}">
+                    <div class="card">
+                        <img class="card-img-top" th:src="'/img/bc/'+${i}+.jpg" alt="Card image cap" src="/img/banner.png">
+                        <div class="card-body position-absolute">
+                            <h5 class="card-title" th:text="'Content #' + ${i}"></h5>
+                            <p class="card-text"></p>
+                        </div>
+                    </div>
+                </div>
+    </div>
+</main>
 
-        <th:block th:replace="fragments/head :: bootstrap-js" />
-        <th:block th:replace="fragments/head :: main-js" />
-
-    </body>
+</body>
 </html>
