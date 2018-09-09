@@ -3,18 +3,30 @@ html {
   min-height: 100%;
 }
 
+body {
+  background-color: #FCFCFC;
+}
+
 /* Fonts */
 [class*="col-"] {
   padding-left: 5px;
   padding-right: 5px;
 }
 
-.jumbotron {
-    border-radius: 0px;
+.row {
+    margin-right: -5px;
+    margin-left: -5px;
 }
 
-.jumbotron h1, .navbar-brand {
-    font-family: 'Marck Script', cursive;
+.jumbotron, .jumbotron * {
+    border-radius: 0px;
+    margin-bottom: 0px;
+    color: #fffabd;
+}
+/* .jumbotron *, */
+.navbar-brand {
+    font-family: 'Orbitron', cursive;
+    /* font-family: 'Marck Script', cursive; */
 }
 
 h1, h2, h3, h4 {
@@ -44,12 +56,13 @@ main {
     position: absolute;
     bottom: 0;
 
-    box-shadow: 0 -.5rem 1rem rgba(0,0,0,.15)!important;
+    box-shadow: 0 -.25rem 1rem rgba(0,0,0,0.25) !important;
 }
 
 .header {
     background-image: url("/img/banner.png");
     background-size: contain;
+    box-shadow: 0 .25rem 1rem rgba(0,0,0,0.25) !important;
 }
 
 .card-img-top {

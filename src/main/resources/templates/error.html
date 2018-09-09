@@ -1,27 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.thymeleaf.org/"
       xmlns:th="http://www.thymeleaf.org"
-      layout:decorate="~{fragments/layouts/default-layout}" th:with="pageTitle='Error'">
+      layout:decorate="~{fragments/layouts/default-layout}" th:with="pageTitle='Error - ' + ${errorPhrase}">
 
 <body>
 
-<div layout:fragment="head-content">
-    <span class="head-logo">Dan's Website</span>
-    <span class="head-logo mx-2">-</span>
-    <span class="head-logo">Error!</span>
-</div>
-
 <main layout:fragment="body-content">
-    <div class="row mx-md-4">
-                <div class="col-6 mt-4 mx-auto">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title" th:text="${errorCode} + ' - ' + ${errorPhrase}">Error - Code</h4>
-                            <p class="card-text" th:text="${errorMessage}"></p>
-                            <p class="card-text" th:text="${errorException}"></p>
-                        </div>
+    <div class="row">
+            <div class="col-6 mt-4 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title" th:text="${errorCode} + ' - ' + ${errorPhrase}">Error - Code</h4>
+                        <p class="card-text" th:text="${errorMessage}"></p>
+                        <p class="card-text" th:text="${errorException}"></p>
                     </div>
                 </div>
+            </div>
     </div>
 
 </main>
