@@ -2,10 +2,9 @@ package com.bellakin.shop.controllers.admin;
 
 import com.bellakin.shop.controllers.UserSession;
 import com.bellakin.shop.controllers.exceptions.ForbiddenException;
-import com.bellakin.shop.data.models.users.AbstractAppUser;
-import com.bellakin.shop.services.IUserService;
 import com.bellakin.shop.data.models.roles.ShopUserRole;
 import com.bellakin.shop.data.models.users.AppUser;
+import com.bellakin.shop.services.IUserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,10 +41,7 @@ public class UserController {
   @GetMapping("/admin/users")
   public ModelAndView userList(ModelMap model) {
 
-    boolean isAdmin = session.getUser().map(AbstractAppUser::getRoleSet)
-      .filter(iRoles -> iRoles.contains(ShopUserRole.ADMIN)).isPresent();
-
-    if(!isAdmin) {
+    if(!session.isAdmin()) {
       throw new ForbiddenException("Not Authorized");
     }
 

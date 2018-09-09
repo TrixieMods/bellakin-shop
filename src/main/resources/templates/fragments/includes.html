@@ -14,7 +14,6 @@
     <script src="/webjars/jquery/jquery.min.js"></script>
     <script src="/webjars/popper.js/umd/popper.min.js"></script>
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-
 </th:block>
 
 <th:block th:fragment="main-js">
@@ -25,8 +24,12 @@
     <script src="/js/admin.js"></script>
 </th:block>
 
-<th:block th:replace="fragments/includes :: bootstrap-js"/>
-<th:block th:replace="fragments/includes :: main-js"/>
-<th:block th:replace="fragments/includes :: admin-js"/>
+<th:block th:fragment="fontawesome-css">
+    <script src="/webjars/font-awesome/css/all.css"></script>
+</th:block>
+
+<th:block th:fragment="fontawesome-js">
+    <script src="/webjars/font-awesome/js/all.min.js"></script>
+</th:block>
 
 </html>

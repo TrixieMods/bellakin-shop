@@ -1,5 +1,7 @@
 package com.bellakin.shop.controllers;
 
+import com.bellakin.shop.data.models.roles.ShopUserRole;
+import com.bellakin.shop.data.models.users.AbstractAppUser;
 import com.bellakin.shop.services.IUserService;
 import com.bellakin.shop.data.models.users.AppUser;
 import org.springframework.context.annotation.Scope;
@@ -37,6 +39,11 @@ public class UserSession {
 
   public boolean isLoggedIn() {
     return isLoggedIn;
+  }
+
+  public boolean isAdmin() {
+    return getUser().map(AbstractAppUser::getRoleSet)
+      .filter(iRoles -> iRoles.contains(ShopUserRole.ADMIN)).isPresent();
   }
 
   public Optional<AppUser> getUser() {

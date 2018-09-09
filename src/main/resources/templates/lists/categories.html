@@ -5,11 +5,9 @@
       layout:decorate="~{fragments/layouts/default-layout}" th:with="pageTitle='Categories'">
 
 <body>
-<div layout:fragment="head-content">
-    <span class="head-logo">Categories</span>
-</div>
+
 <main layout:fragment="body-content">
-    <div class="row mx-md-4">
+    <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
@@ -19,7 +17,7 @@
                     </div>
                 </div>
     </div>
-    <div class="row mt-2 mx-md-4">
+    <div class="row mt-2">
                 <div class="col-4" th:each="category : ${categories}">
                     <div class="card">
                         <div class="card-body">

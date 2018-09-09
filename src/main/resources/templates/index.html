@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.thymeleaf.org/"
       xmlns:th="http://www.thymeleaf.org"
-      layout:decorate="~{fragments/layouts/default-layout}" th:with="pageTitle='Home'">
-
+      layout:decorate="~{fragments/layouts/default-layout}" th:with="pageTitle='Front Page'">
 <body>
 
-<div layout:fragment="head-content">
-    <span class="head-logo">Dan's Website</span>
-</div>
-
 <main layout:fragment="body-content">
-    <div class="row mt-2 mx-md-4">
-                <div class="col-12">
+    <div class="row">
+                <div class="col-12 mt-4">
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Dan's Website just launched!</h4>
@@ -20,17 +15,17 @@
                     </div>
                 </div>
     </div>
-    <div class="row mt-2 mx-md-4 align-items-center">
-                <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-2"
-                      th:each="i : ${#numbers.sequence( 1, 12)}">
-                    <div class="card">
-                        <img class="card-img-top" th:src="'/img/bc/'+${i}+.jpg" alt="Card image cap" src="/img/banner.png">
-                        <div class="card-body position-absolute">
-                            <h5 class="card-title" th:text="'Content #' + ${i}"></h5>
-                            <p class="card-text"></p>
-                        </div>
-                    </div>
-                </div>
+    <div class="row mt-2 align-items-center">
+                <!--<div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-2"-->
+                      <!--th:each="i : ${#numbers.sequence( 1, 12)}">-->
+                    <!--<div class="card">-->
+                        <!--<img class="card-img-top" th:src="'/img/bc/'+${i}+.jpg" alt="Card image cap" src="/img/banner.png">-->
+                        <!--<div class="card-body position-absolute">-->
+                            <!--<h5 class="card-title" th:text="'Content #' + ${i}"></h5>-->
+                            <!--<p class="card-text"></p>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
     </div>
 </main>
 

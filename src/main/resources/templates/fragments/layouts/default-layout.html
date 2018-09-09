@@ -2,7 +2,7 @@
 <html xmlns:layout="http://www.thymeleaf.org" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title th:text="${pageTitle} + ' - Dan\'s Website'">Page Title</title>
+    <title th:text="${pageTitle} + ' - Reports 4 Me'">Page Title</title>
 
     <!-- Style -->
     <link th:replace="fragments/includes :: bootstrap-css">
@@ -17,7 +17,9 @@
 <div th:replace="fragments/headers/default-footer :: footer"></div>
 
 <th:block th:replace="fragments/includes :: bootstrap-js"/>
+<th:block th:replace="fragments/includes :: fontawesome-js"/>
 <th:block th:replace="fragments/includes :: main-js"/>
 <th:block th:replace="fragments/includes :: admin-js"/>
+
 </body>
 </html>

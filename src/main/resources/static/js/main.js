@@ -30,3 +30,11 @@ function accountLogout() {
     })
     .catch(error => console.error('Error:', error));;
 }
+
+function showCookies() {
+
+}
+
+function hideCookies() {
+
+}

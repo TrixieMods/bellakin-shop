@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.thymeleaf.org/"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layouts/default-layout}" th:with="pageTitle='Control Panel'">
+
+<body>
+
+<main layout:fragment="body-content">
+
+    <div class="row pt-4">
+        <div class="col-12 col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-header">Admin Controls</div>
+                <div class="card-body">
+                    <div class="control-buttons">
+                        <a class="btn btn-primary" href="/admin/users">
+                            <i class="fas fa-users"></i>
+                            <span>User Controls</span>
+                        </a>
+                        <a class="btn btn-primary" href="/admin/categories">
+                            <i class="fas fa-list"></i>
+                            <span>Category Controls</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+</body>
+</html>
