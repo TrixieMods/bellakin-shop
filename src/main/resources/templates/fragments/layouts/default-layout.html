@@ -2,7 +2,7 @@
 <html xmlns:layout="http://www.thymeleaf.org" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title th:text="${pageTitle} + ' - Reports 4 Me'">Page Title</title>
+    <title th:text="${pageTitle} + ' - botzzer'">Page Title</title>
 
     <!-- Style -->
     <link th:replace="fragments/includes :: bootstrap-css">
@@ -10,11 +10,15 @@
 </head>
 
 <body>
+
+<div class="fixed-top bg-image1 mx-auto"></div>
+
 <div th:replace="fragments/headers/default-header :: header"></div>
 
 <main class="container-fluid" layout:fragment="body-content"></main>
 
 <div th:replace="fragments/headers/default-footer :: footer"></div>
+
 
 <th:block th:replace="fragments/includes :: bootstrap-js"/>
 <th:block th:replace="fragments/includes :: fontawesome-js"/>

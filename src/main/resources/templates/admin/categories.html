@@ -32,11 +32,12 @@
                 <div class="col-12 col-xl-4 mb-3" th:each="cat : ${categories}">
                     <div class="card">
                         <div class="card-body">
+                            <button class="btn btn-danger float-right"
+                                    th:attr="onclick='deleteCategory(\''+${cat.id}+'\')'">
+                                <i class="far fa-trash-alt"></i>
+                            </button>
                             <h4 class="card-title" th:text="${cat.name}">Username</h4>
                             <p class="card-text" th:text="${cat.description}">Last Name</p>
-                        </div>
-                        <div class="card-footer">
-                            <button class="btn btn-danger mr-auto" th:attr="onclick='deleteCategory(\''+${cat.id}+'\')'">Delete</button>
                         </div>
                     </div>
                 </div>
