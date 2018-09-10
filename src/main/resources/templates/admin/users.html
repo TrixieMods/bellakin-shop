@@ -34,14 +34,11 @@
                         <div class="card-body">
                             <button class="btn btn-danger float-right" th:unless="${user.name} == 'admin'"
                                     th:attr="onclick='deleteUser(\''+${user.id}+'\')'">
-                                <i class="fas fa-user-minus"></i>
+                                <i class="far fa-trash-alt"></i>
                             </button>
                             <h4 class="card-title" th:text="${user.name}">Username</h4>
                             <p class="card-text" th:text="${user.password}">Last Name</p>
                             <p class="badge badge-pill badge-info" th:each="role : ${user.roles}" th:text="${role.name}">Role</p>
-                        </div>
-                        <div class="card-footer">
-
                         </div>
                     </div>
                 </div>
