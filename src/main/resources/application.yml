@@ -1,0 +1,17 @@
+# App Properties
+app:
+  services:
+    bgService:
+      bgPath: /static/img/bg
+
+# Spring Properties
+server:
+  port: 8080
+
+# Test Properties
+spring:
+  thymeleaf:
+    cache: false
+  devtools:
+    restart:
+      include: src/main/resources/templates/**,src/main/resources/static/**

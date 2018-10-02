@@ -17,12 +17,12 @@
         </encoder>
     </appender>
 
-    <root level="WARN" additivity="false">
+    <root level="INFO" additivity="false">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="ROLLING"/>
     </root>
 
-    <logger name="com.bellakin.shop" level="INFO" additivity="false">
+    <logger name="com.bellakin.botzzer" level="INFO" additivity="false">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="ROLLING"/>
     </logger>

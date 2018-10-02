@@ -17,6 +17,9 @@ function addUser(form) {
 }
 
 function deleteUser(id) {
+    if(!confirm("Are you sure?")) {
+        return;
+    }
     fetch("/admin/deleteUser", {
         method: "POST",
         headers: {
@@ -38,6 +41,7 @@ function deleteUser(id) {
 
 // Categories
 function addCategory(form) {
+
     fetch("/admin/addCategory", {
         method: "POST",
         body: new FormData(form)
@@ -55,6 +59,9 @@ function addCategory(form) {
 }
 
 function deleteCategory(id) {
+    if(!confirm("Are you sure?")) {
+        return;
+    }
     fetch("/admin/deleteCategory", {
         method: "POST",
         headers: {

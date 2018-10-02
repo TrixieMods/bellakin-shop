@@ -1,40 +1,21 @@
-function accountLogin(form) {
-    fetch("/account/login", {
-        method: "POST",
-        body: new FormData(form)
-    })
-    .then(result => {
-        result.text().then(text => {
-            if(result.status !== 200) {
-                alert(result.status + " : " + text);
-            } else {
-                document.location.replace("/");
-            }
-        });
-    })
-    .catch(error => console.error('Error:', error));;
-}
+var $lazyConfig = {
+    scrollDirection: 'vertical',
+    effect: "fadeIn",
+    effectTime: 400,
+    threshold: 0,
+    visibleOnly: true,
+    onError: function(element) {
+        console.log('error loading ' + element.data('src'));
+    },
+    beforeLoad: function(e) {
+                // before load, store the gradient onto the element data
+                e.data("gradient", e.css("background-image"));
+    },
+    afterLoad: function(e) {
+        // afterwards create the wanted background image
+        e.css("background-image", e.data("gradient") + "," + e.css("background-image"));
+    }
+};
 
-function accountLogout() {
-    fetch("/account/logout", {
-        method: "POST"
-    })
-    .then(result => {
-        result.text().then(text => {
-            if(result.status !== 200) {
-                alert(result.status + " : " + text);
-            } else {
-                document.location.replace("/");
-            }
-        });
-    })
-    .catch(error => console.error('Error:', error));;
-}
+$('.lazy').Lazy($lazyConfig);
 
-function showCookies() {
-
-}
-
-function hideCookies() {
-
-}

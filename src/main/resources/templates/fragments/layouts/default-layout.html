@@ -7,11 +7,12 @@
     <!-- Style -->
     <link th:replace="fragments/includes :: bootstrap-css">
     <link th:replace="fragments/includes :: main-css">
+
 </head>
 
 <body>
 
-<div class="fixed-top bg-image1 mx-auto"></div>
+<div class="fixed-top bg-image1 mx-auto lazy" th:attr="data-src='/img/bg/' + ${session.randBackground}"></div>
 
 <div th:replace="fragments/headers/default-header :: header"></div>
 
@@ -19,10 +20,13 @@
 
 <div th:replace="fragments/headers/default-footer :: footer"></div>
 
+<div th:replace="fragments/account/login-form :: login-modal"></div>
+<div th:replace="fragments/account/create-account-form :: create-account-modal"></div>
 
 <th:block th:replace="fragments/includes :: bootstrap-js"/>
 <th:block th:replace="fragments/includes :: fontawesome-js"/>
 <th:block th:replace="fragments/includes :: main-js"/>
+<th:block th:replace="fragments/includes :: account-js"/>
 <th:block th:replace="fragments/includes :: admin-js"/>
 
 </body>
