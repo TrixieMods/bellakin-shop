@@ -14,13 +14,13 @@
     <bean id="userDao" class="com.bellakin.core.data.persistence.mongodb.MongoRepo" lazy-init="true">
         <constructor-arg name="factory" ref="localhost/shop"/>
         <constructor-arg name="collection" value="users"/>
-        <constructor-arg name="type" value="com.bellakin.shop.data.models.users.AppUser"/>
+        <constructor-arg name="type" value="com.bellakin.botzzer.data.models.users.AppUser"/>
     </bean>
 
     <bean id="categoryDao" class="com.bellakin.core.data.persistence.mongodb.MongoRepo" lazy-init="true">
         <constructor-arg name="factory" ref="localhost/shop"/>
         <constructor-arg name="collection" value="categories"/>
-        <constructor-arg name="type" value="com.bellakin.shop.data.models.category.ShopCategory"/>
+        <constructor-arg name="type" value="com.bellakin.botzzer.data.models.category.ShopCategory"/>
     </bean>
 
     <!--  Exception Handler -->
